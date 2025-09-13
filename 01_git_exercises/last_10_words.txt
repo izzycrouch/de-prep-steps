@@ -1,2 +1,10 @@
-last_10_words = word_list[-10:]
-print(last_10_words)
+zymotoxic
+zymurgy
+Zyrenian
+Zyrian
+Zyryan
+zythem
+Zythia
+zythum
+Zyzomys
+Zyzzogeton
