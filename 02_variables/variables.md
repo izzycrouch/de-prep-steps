@@ -24,67 +24,67 @@ type(a * b)
 Make sure you understand why you got the results you did and investigate any that surprised you. You can use the [Python documentation](https://docs.python.org/3/).
 [Speedsheet](https://speedsheet.io/s/python) for Python is also useful for quick reference.
 
-A:
+A: 60 int
 
 ```python
 a * b
 ```
 
-B:
+B: 3 float
 
 ```python
 b * c
 ```
 
-C:
+C:5.6 float
 
 ```python
 b + c
 ```
 
-D:
+D:-29.1 float
 
 ```python
 d - a
 ```
 
-E:
+E:2 int
 
 ```python
 a % b
 ```
 
-F:
+F:2.0 float
 
 ```python
 a % 5.0
 ```
 
-G:
+G:25 int
 
 ```python
 b**2
 ```
 
-H:
+H:17 int
 
 ```python
 a + b
 ```
 
-I:
+I:0.41666 int
 
 ```python
 b / a
 ```
 
-J:
+J: 2 int
 
 ```python
 a // b
 ```
 
-K:
+K:16 int
 
 ```python
 len('northcoders') + b
@@ -142,98 +142,98 @@ Justify your prediction and then type them into the Python REPL to check if you 
 
 Make sure you understand why you got the results you did and investigate any that surprise you.
 
-A:
+A: True bool
 
 ```
 30 > 12
 ```
 
-B:
+B: False bool
 
 ```
 4 < 4
 ```
 
-C:
+C: false bool
 
 ```
 12 == '12'
 ```
 
-D:
+D: false bool
 
 ```
 7 < 7.0
 ```
 
-E:
+E: true bool
 
 ```
 1 == True
 ```
 
-F:
+F: true bool
 
 ```
 0.9 < True
 ```
 
-G:
+G: true bool
 
 ```
 14 > 5 and len('tree') == 8/2
 ```
 
-H:
+H: 4 and int - 3 is truthy so return 4
 
 ```
 3 and 4
 ```
 
-I:
+I: 0 and int - 3 is truthy so return 0
 
 ```
 3 and 0
 ```
 
-J:
+J: 0 and int - 0 is falsey so return 0
 
 ```
 0 and 3
 ```
 
-K:
+K: 3>4 is false or 5>2 is true - return true - bool 
 
 ```
 3 > 4 or 5 > 2
 ```
 
-L:
+L: 5 is true so return 5 - int
 
 ```
 5 or 0.7
 ```
 
-M:
+M: 4 int - 5>10 is falsey
 
 ```
 5 > 10 or 4
 ```
 
-N:
+N: false bool
 
 ```
 not 10 > 5
 ```
 
-O:
+O: true bool
 
 ```
 not 10 < 5
 ```
 
 P:
-
+ false bool
 ```
 not 3
 ```
