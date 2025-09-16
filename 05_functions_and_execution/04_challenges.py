@@ -289,9 +289,15 @@ def test_check_infinitive():
 # It should return a list containing all strings ending with an 's' from the
 #  input (retaining the order)
 
-def collect_plurals 
+def collect_plurals(items): 
+    plurals = []
+    for item in items:
+        if item.endswith('s'):
+            plurals.append(item)
+    return plurals
 
-@skip_test
+
+@run_test
 def test_collect_plurals():
     assert collect_plurals(["dogs", "cat", "apples", "kittens", "kiwi"]) == [
         "dogs",
@@ -318,8 +324,13 @@ def test_collect_plurals():
 # You should return a list of user objects each with the 'admin' key set
 #  to True
 
+def make_all_admins(users):
+    for user in users:
+        user["admin"] = True    
+    return users
 
-@skip_test
+
+@run_test
 def test_make_all_admins():
     users = [
         {"name": "Barry", "admin": False},
