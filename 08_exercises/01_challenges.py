@@ -25,6 +25,16 @@ flip_booleans([]) # returns []
 
 
 def flip_booleans(bools):
+    flipped_bools = []
+    if not bools:
+        return []
+    else:
+        for bool_n in bools:
+            if bool_n == True:
+                flipped_bools.append(False)
+            elif bool_n == False:
+                flipped_bools.append(True)
+    return flipped_bools
     pass
 
 
@@ -103,17 +113,23 @@ translate_key(student, 'prénom', 'first_name') # should return the following:
 
 
 def translate_key(student, key_to_change, translation):
+    if not key_to_change in student:
+        return student
+    else:
+        student[translation] = student.pop(key_to_change)
+    return student
+
     pass
 
 
-@skip_test
+@run_test
 def translate_key_should_return_empty_dictionary_when_passed_empty_dictionary():
     result = translate_key({}, "prénom", "first_name")
     expected = {}
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def translate_key_should_return_unchanged_if_key_not_present():
     result = translate_key(
         {"first_name": "Carla", "surname": "Bruni", "job": "Artist"},
@@ -124,7 +140,7 @@ def translate_key_should_return_unchanged_if_key_not_present():
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def translate_key_should_return_new_dictionary_with_key_translated():
     result = translate_key(
         {"prénom": "Carla", "surname": "Bruni", "job": "Artist"}, "prénom", "first_name"
@@ -133,7 +149,7 @@ def translate_key_should_return_new_dictionary_with_key_translated():
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def translate_key_should_return_new_dictionary():
     result = translate_key(
         {"first_name": "Jean", "surname": "Reno", "emploi": "Actor"}, "emploi", "job"
@@ -164,31 +180,37 @@ find_first_dentist([{'name': 'Callum', 'is_dentist': True},
 
 
 def find_first_dentist(people):
+    if not people:
+        return None
+    else:
+        for person in people:
+            if person['is_dentist'] == True:
+                return person
     pass
 
 
-@skip_test
+@run_test
 def find_first_dentist_should_return_none_when_passed_empty_list():
     result = find_first_dentist([])
     expected = None
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def find_first_dentist_should_return_none_if_person_not_dentist():
     result = find_first_dentist([{"name": "Callum", "is_dentist": False}])
     expected = None
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def find_first_dentist_should_return_person_if_dentist():
     result = find_first_dentist([{"name": "Callum", "is_dentist": True}])
     expected = {"name": "Callum", "is_dentist": True}
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def find_first_dentist_should_return_first_dentist():
     result = find_first_dentist(
         [
@@ -200,7 +222,7 @@ def find_first_dentist_should_return_first_dentist():
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def find_first_dentist_should_return_first_dentist_of_many():
     result = find_first_dentist(
         [
