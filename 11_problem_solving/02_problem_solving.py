@@ -133,13 +133,13 @@ def convert_time_string(sample_string):
     if hour == 0:
         return ''.join(['12:', sample_string.partition(':')[2]])
     if hour <= 12:
-        return ''.join([sample_string,])
+        return ''.join([sample_string])
     elif 24 >= hour > 12:
         if hour - 12 < 10:
             new_hour = ''.join(['0', str(hour-12)])
         elif hour - 12 >= 10:
             new_hour = str(hour - 12)
-    return ''.join([new_hour, sample_string.partition(':')[1], sample_string.partition(':')[2],]) 
+    return ''.join([new_hour, sample_string.partition(':')[1], sample_string.partition(':')[2]]) 
     pass
 
 
