@@ -598,94 +598,110 @@ dna_pairs('gat') # returns ['GC', 'AT', 'TA']
 
 
 def dna_pairs(dna_string):
+    matched_dna_pairs = []
+    for character in dna_string:
+        if character == 'G' or character == 'g':
+            g_string = 'GC'
+            matched_dna_pairs.append(g_string)
+        elif character == 'C' or character == 'c':
+            c_string = 'CG'
+            matched_dna_pairs.append(c_string)
+        elif character == 'T' or character == 't':
+            t_string = 'TA'
+            matched_dna_pairs.append(t_string)
+        elif character == 'A' or character == 'a':
+            a_string = 'AT'
+            matched_dna_pairs.append(a_string)
+    return matched_dna_pairs
+
     pass
 
 
-@skip_test
+@run_test
 def dna_pairs_should_return_empty_list_for_empty_string():
     result = dna_pairs("")
     expected = []
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def dna_pairs_should_return_empty_list_for_single_invalid_letter():
     result = dna_pairs("B")
     expected = []
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def dna_pairs_should_return_single_valid_uppercase_letter_G():
     result = dna_pairs("G")
     expected = ["GC"]
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def dna_pairs_should_return_single_valid_uppercase_letter_C():
     result = dna_pairs("C")
     expected = ["CG"]
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def dna_pairs_should_return_single_valid_uppercase_letter_T():
     result = dna_pairs("T")
     expected = ["TA"]
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def dna_pairs_should_return_single_valid_uppercase_letter_A():
     result = dna_pairs("A")
     expected = ["AT"]
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def dna_pairs_should_return_single_valid_lowercase_letter_g():
     result = dna_pairs("g")
     expected = ["GC"]
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def dna_pairs_should_return_single_valid_lowercase_letter_c():
     result = dna_pairs("c")
     expected = ["CG"]
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def dna_pairs_should_return_single_valid_lowercase_letter_t():
     result = dna_pairs("t")
     expected = ["TA"]
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def dna_pairs_should_return_single_valid_lowercase_letter_a():
     result = dna_pairs("a")
     expected = ["AT"]
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def dna_pairs_should_return_valid_list_for_long_valid_uppercase_string():
     result = dna_pairs("GAT")
     expected = ["GC", "AT", "TA"]
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def dna_pairs_should_return_valid_list_for_long_uppercase_string_with_invalid_chars():
     result = dna_pairs("GYTC")
     expected = ["GC", "TA", "CG"]
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def dna_pairs_should_return_valid_list_for_mixed_string():
     result = dna_pairs("CGauTzgAcj")
     expected = ["CG", "GC", "AT", "TA", "GC", "AT", "CG"]
@@ -708,45 +724,57 @@ tally_hashtags_and_mentions(tweet) # returns {'hashtags': 2, 'mentions': 1}
 
 
 def tally_hashtags_and_mentions(tweet):
+    dictionary = {
+        'hashtags' : 0,
+        'mentions' : 0
+    }
+    for character in tweet:
+        if character == '#':
+            dictionary['hashtags'] += 1
+        elif character == '@':
+            dictionary['mentions'] += 1
+    return dictionary
+
+
     pass
 
 
-@skip_test
+@run_test
 def tally_hashtags_and_mentions_should_return_0_for_empty_tweet():
     result = tally_hashtags_and_mentions("")
     expected = {"hashtags": 0, "mentions": 0}
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def tally_hashtags_and_mentions_should_return_1_for_single_hashtag():
     result = tally_hashtags_and_mentions("#omg")
     expected = {"hashtags": 1, "mentions": 0}
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def tally_hashtags_and_mentions_should_return_1_for_single_mention():
     result = tally_hashtags_and_mentions("@paul_c")
     expected = {"hashtags": 0, "mentions": 1}
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def tally_hashtags_and_mentions_should_return_1_for_tweet_containing_single_hashtag():
     result = tally_hashtags_and_mentions("Best place to learn #python?")
     expected = {"hashtags": 1, "mentions": 0}
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def tally_hashtags_and_mentions_should_return_1_for_tweet_containing_single_mention():
     result = tally_hashtags_and_mentions("Need coding help, paging @Danika ...")
     expected = {"hashtags": 0, "mentions": 1}
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def tally_hashtags_and_mentions_should_return_several_hashtags_and_mentions():
     result = tally_hashtags_and_mentions(
         "So excited to start at @northcoders on Monday! #learntocode #codingbootcamp"
@@ -755,7 +783,7 @@ def tally_hashtags_and_mentions_should_return_several_hashtags_and_mentions():
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def tally_hashtags_and_mentions_should_return_several_hashtags_and_mentions_mixed():
     result = tally_hashtags_and_mentions(
         "Thanks to @Alex and @Cat for helping with my #python #coding"
