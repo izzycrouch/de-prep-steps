@@ -7,6 +7,14 @@ from test_api.checks import run_test, format_err_msg, skip_test
 # DO NOT CHANGE CODE ABOVE THIS LINE
 
 def is_suspicious(crew_mates):
+    if 'imposter' in crew_mates:
+        return True
+    else: 
+        return False 
+
+
+
+
     """
     This function will find take a list of crew_mates and return a True when the list contains the string "imposter" and False if not.
 
@@ -32,7 +40,7 @@ def test_is_not_suspicious():
         format_err_msg(False, is_suspicious(test_group))
 
 
-@skip_test
+@run_test
 def test_is_suspicious():
     assert is_suspicious(["imposter"]) is True, \
         format_err_msg(True, is_suspicious(["imposter"]))

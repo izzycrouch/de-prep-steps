@@ -6,7 +6,11 @@ sys.path.append(os.getcwd())
 from test_api.checks import run_test, format_err_msg, skip_test
 # DO NOT CHANGE CODE ABOVE THIS LINE
 
+import string
+
 def convert_to_title_case(sentence):
+    return string.capwords(sentence)
+   
     """
     This function will take a string and uppercase the first letter of each word. In Python, strings come with a .title() method that almost serves our purposes.
 
@@ -29,7 +33,7 @@ def test_convert_single_word_to_title_case():
         format_err_msg("Hi", convert_to_title_case("hi"))
 
 
-@skip_test
+@run_test
 def test_convert_multi_word_to_title_case():
     assert convert_to_title_case("hello world") == "Hello World", \
         format_err_msg("Hello World", convert_to_title_case("hello world"))
@@ -43,7 +47,7 @@ def test_convert_multi_word_to_title_case():
                        convert_to_title_case("Well ain't this awkward"))
 
 
-@skip_test
+@run_test
 def test_convert_complex_sentence_to_title_case():
     assert convert_to_title_case(
         "not just apostrophes, could be something-else") \
